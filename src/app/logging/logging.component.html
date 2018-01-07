@@ -1,0 +1,30 @@
+
+<div class="pwrem-container-heading">
+  <h3>Logging</h3>
+  <button mat-button (click)="removeAll()" color="primary">Remove all</button>
+</div>
+<div class="example-container">
+  <cdk-table #table [dataSource]="dataSourceLogs" class="example-table">
+    <ng-container cdkColumnDef="type">
+      <cdk-header-cell *cdkHeaderCellDef class="example-header-cell">Type</cdk-header-cell>
+      <cdk-cell *cdkCellDef="let row" class="example-cell pwrem-item-pending">
+        [{{ row.type || 'undefined' }}]
+      </cdk-cell>
+    </ng-container>
+    <ng-container cdkColumnDef="time">
+      <cdk-header-cell *cdkHeaderCellDef class="example-header-cell">Date</cdk-header-cell>
+      <cdk-cell *cdkCellDef="let row" class="example-cell pwrem-item-approved"><time>{{ row.time | amTimeAgo }}</time></cdk-cell>
+    </ng-container>
+    <ng-container cdkColumnDef="messageShort">
+      <cdk-header-cell *cdkHeaderCellDef class="example-header-cell">Message</cdk-header-cell>
+      <cdk-cell *cdkCellDef="let row" class="example-cell pwrem-item-pending">{{ row.messageShort }}</cdk-cell>
+    </ng-container>
+    <ng-container cdkColumnDef="messageLong">
+      <cdk-header-cell *cdkHeaderCellDef class="example-header-cell">Message details</cdk-header-cell>
+      <cdk-cell *cdkCellDef="let row" class="example-cell pwrem-item-pending">{{ row.messageLong }}</cdk-cell>
+    </ng-container>
+    <cdk-header-row *cdkHeaderRowDef="['type', 'time', 'messageShort', 'messageLong']" class="example-header-row"></cdk-header-row>
+    <cdk-row *cdkRowDef="let row; columns: ['type', 'time', 'messageShort', 'messageLong']" class="example-row"></cdk-row>
+  </cdk-table>
+</div>
+

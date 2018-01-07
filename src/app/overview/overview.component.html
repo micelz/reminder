@@ -1,0 +1,54 @@
+
+<h3>Pending</h3>
+<div class="example-container">
+  <cdk-table #table [dataSource]="dataSourcePending" class="example-table">
+    <ng-container cdkColumnDef="name">
+      <cdk-header-cell *cdkHeaderCellDef class="example-header-cell">Name</cdk-header-cell>
+      <cdk-cell *cdkCellDef="let row" class="example-cell pwrem-item-pending">{{ row.name }}</cdk-cell>
+    </ng-container>
+    <ng-container cdkColumnDef="path">
+      <cdk-header-cell *cdkHeaderCellDef class="example-header-cell">Path </cdk-header-cell>
+      <cdk-cell *cdkCellDef="let row" class="example-cell pwrem-item-pending">{{ row.path }}</cdk-cell>
+    </ng-container>
+    <ng-container matColumnDef="action">
+      <cdk-header-cell *cdkHeaderCellDef class="example-header-cell">Action</cdk-header-cell>
+      <cdk-cell *cdkCellDef="let row" class="example-cell">
+        <button mat-menu-item (click)="save(row)"><mat-icon>check_circle</mat-icon></button>
+      </cdk-cell>
+    </ng-container>
+    <cdk-header-row *cdkHeaderRowDef="['name', 'path', 'action']" class="example-header-row"></cdk-header-row>
+    <cdk-row *cdkRowDef="let row; columns: ['name', 'path', 'action']" class="example-row"></cdk-row>
+  </cdk-table>
+</div>
+
+<div class="pwrem-container-heading">
+  <h3>Approved</h3>
+  <button mat-button (click)="removeAll()" color="basic">Remove all</button>
+</div>
+<div class="example-container">
+  <cdk-table #table [dataSource]="dataSourceApproved" class="example-table">
+    <ng-container cdkColumnDef="name">
+      <cdk-header-cell *cdkHeaderCellDef class="example-header-cell">Name</cdk-header-cell>
+      <cdk-cell *cdkCellDef="let row" class="example-cell pwrem-item-approved">{{ row.name }}</cdk-cell>
+    </ng-container>
+    <ng-container cdkColumnDef="date">
+      <cdk-header-cell *cdkHeaderCellDef class="example-header-cell">Date</cdk-header-cell>
+      <cdk-cell *cdkCellDef="let row" class="example-cell pwrem-item-approved"><time>{{ row.time | amTimeAgo }}</time></cdk-cell>
+    </ng-container>
+    <ng-container matColumnDef="action">
+      <cdk-header-cell *cdkHeaderCellDef class="example-header-cell">Action</cdk-header-cell>
+      <cdk-cell *cdkCellDef="let element" class="example-cell">
+        <button class="pwrem-item-undo" mat-menu-item (click)="undo(element)"><mat-icon>undo</mat-icon></button>
+        <button class="pwrem-item-remove" mat-menu-item (click)="removeItem(element)"><mat-icon>delete_sweep</mat-icon></button>
+      </cdk-cell>
+    </ng-container>
+    <cdk-header-row *cdkHeaderRowDef="['name', 'date', 'action']" class="example-header-row"></cdk-header-row>
+    <cdk-row *cdkRowDef="let row; columns: ['name', 'date', 'action']" class="example-row"></cdk-row>
+  </cdk-table>
+</div>
+
+
+
+
+ 
+  

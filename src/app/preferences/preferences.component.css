@@ -1,0 +1,40 @@
+
+.pwrem-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.pwrem-container > * {
+  width: 100%;
+}
+
+.mat-tab-body-content {
+  overflow-x: hidden;
+}
+
+.pwrem-full-width {
+  display: flex;
+}
+
+.pwrem-h2 {
+  margin: 10px;
+}
+
+.pwrem-h3 {
+  font-weight: lighter;
+}
+
+.pwrem-section {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: 60px;
+}
+
+.pwrem-margin {
+  margin: 0 10px;
+}
+
+.mat-form-field-wrapper {
+    position: initial;
+}

@@ -1,0 +1,82 @@
+
+<mat-tab-group class="pwrem-tab-group">
+  <mat-tab label="General">
+    <br><form #formGeneral="ngForm" (ngSubmit)="save()" class="pwrem-container">
+      <mat-form-field>
+        <div class="pwrem-full-width">
+          <input matInput placeholder="Directory to watch" name="watchingFolder" [(ngModel)]="setting.watchingFolder"
+                minlength="5" maxlength="100" required>
+          <button mat-raised-button (click)="browse('watchingFolder')" color="primary"><mat-icon>folder_open</mat-icon></button>
+        </div>
+        <mat-error *ngIf="errorMessage.length">{{ errorMessage }}</mat-error>
+      </mat-form-field>
+      <br>
+      <mat-checkbox [checked]="setting.isNotificationActive" (change)="setting.isNotificationActive = !setting.isNotificationActive">
+        Notification
+      </mat-checkbox>  
+      <br>
+      <div class="button-row">
+        <button mat-raised-button color="primary" type="submit" [disabled]="!formGeneral.valid">Apply</button>
+      </div>
+    </form>
+  </mat-tab>
+  <mat-tab label="Logging">
+    <br><form #formLogging="ngForm" (ngSubmit)="save()" class="pwrem-container">
+      <!--
+      <mat-form-field>
+        <div class="pwrem-full-width">
+          <input matInput placeholder="Database" name="databaseFolder" [(ngModel)]="setting.databaseFolder">
+          <button mat-raised-button (click)="browse('databaseFolder')" color="primary"><mat-icon>folder_open</mat-icon></button>
+        </div>
+        <mat-error *ngIf="errorMessage.length">{{ errorMessage }}</mat-error>
+      </mat-form-field>
+      -->
+      <br>
+      <mat-form-field>
+        <mat-select [(ngModel)]="setting.LoggingLevel" name="LoggingLevel" placeholder="Loglevel">
+          <mat-option *ngFor="let level of ['info', 'debug', 'error']" [value]="level">{{ level }}</mat-option>
+        </mat-select>
+      </mat-form-field><br>
+      <mat-checkbox [checked]="setting.isLoggingActive" (change)="setting.isLoggingActive = !setting.isLoggingActive">Logging</mat-checkbox><br><br>
+      <div class="button-row">
+        <button mat-raised-button color="primary" type="submit" [disabled]="!formLogging.valid">Apply</button>
+      </div>
+    </form> 
+  </mat-tab>
+  <mat-tab label="Info">
+    <br>
+      <mat-card>
+        <h2 class="pwrem-h3">AppName:</h2>
+        <mat-card-content><input matInput placeholder="AppName" [value]="setting.appName" disabled="disabled"></mat-card-content>
+      </mat-card>
+      <mat-card>
+        <h2 class="pwrem-h3">Version:</h2>
+        <mat-card-content><input matInput placeholder="Version" [value]="setting.version" disabled="disabled"></mat-card-content>
+      </mat-card>
+      <mat-card>
+        <h2 class="pwrem-h3">Description:</h2>
+        <mat-card-content><textarea matInput placeholder="Description" [value]="setting.description" disabled="disabled"></textarea></mat-card-content>
+      </mat-card>  
+      <mat-card>
+        <mat-card-content>
+          <button mat-raised-button (click)="resetFactorySettings()" color="primary">Reset to defaults</button>
+        </mat-card-content>
+      </mat-card>  
+      <br>
+    <br><br>
+  </mat-tab>
+  <mat-tab label="Update">
+    <mat-card>
+      <mat-card-content>
+        <h2 class="pwrem-h2">Update</h2>
+        <section class="pwrem-section">
+          <label class="pwrem-margin">Check for update:</label>
+          <button mat-raised-button (click)="checkForUpdates()" color="primary"><mat-icon>cached</mat-icon></button>
+        </section>
+        <section class="pwrem-section">
+          <mat-progress-bar class="pwrem-margin" mode="determinate" [value]="downloadStatus"></mat-progress-bar>
+        </section>
+      </mat-card-content>
+    </mat-card>
+  </mat-tab>
+</mat-tab-group>

@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+/*
+@import './styles/bootstrap-3.3.7-dist/css/bootstrap.min.css';
+@import './styles/bootstrap-3.3.7-dist/css/bootstrap-theme-superhero.min.css';
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+*/
+
+@import '~https://fonts.googleapis.com/icon?family=Material+Icons';
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+body {
+    margin:0px;
+}
+
+mat-toolbar-row {
+  justify-content: space-between;
+}
+
+.container {
+    margin-left: 16px;
+    margin-right: 16px;
+}
+

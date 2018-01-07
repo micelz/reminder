@@ -1,0 +1,81 @@
+
+
+.pwrem-header {
+  min-height: 64px;
+  padding: 8px 24px 0;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+button.mat-menu-item {
+    width: inherit;
+}
+
+.pwrem-item-new {
+    color: indianred;
+}
+
+.pwrem-item-installed {
+    color: limegreen;
+}
+
+.pwrem-item-undo {
+    float: right;
+}
+
+.pwrem-container-heading {
+  display: flex;
+  justify-content: space-between;
+}
+
+.pwrem-item-clear {
+    clear: both;
+}
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+}
+
+.example-table {
+  flex: 1 1 auto;
+  /*
+  overflow: auto;
+  max-height: 500px;
+  */
+}
+
+.example-header-row, .example-row {
+  display: flex;
+  border-bottom: 1px solid #ccc;
+  align-items: center;
+  height: 32px;
+  padding: 0 8px;
+}
+
+.example-cell, .example-header-cell {
+  flex: 1;
+}
+
+.example-header-cell {
+  font-size: 12px;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.example-cell {
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.pwrem-item-pending {
+    color: indianred;
+}
+
+.pwrem-item-approved {
+    color: limegreen;
+}

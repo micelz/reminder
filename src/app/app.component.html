@@ -1,0 +1,23 @@
+
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>{{ title }}</span>
+    <span class="pwrem-spacer"></span>
+    <button mat-icon-button [mat-menu-trigger-for]="menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>    
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-menu x-position="before" #menu="matMenu">
+  <button mat-menu-item routerLink="info"><mat-icon>check_circle</mat-icon>Overview</button>
+  <button mat-menu-item routerLink="preferences"><mat-icon>settings</mat-icon>Settings</button>
+  <button mat-menu-item routerLink="logs" [disabled]="!isLoggingActive"><mat-icon>error_outline</mat-icon>Logging</button>
+</mat-menu>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
+
+<br><br><br>
+
