@@ -1,7 +1,7 @@
 {
   "name": "reminder",
-  "version": "0.0.0",
-  "description": "This electron app is a helpful orem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit ",
+  "version": "0.0.1",
+  "description": "This simple reminder app arised while I've been playing around with electron and angular. The app might be helpful for someone who works on projects where update scripts needs to be executed to keep a clean and functional environment. To remind you what script have already been updated, an underlying database will save any approved and executed scripts.",
   "license": "MIT",
   "main": "main.js",
   "scripts": {
@@ -13,7 +13,7 @@
     "e2e": "ng e2e",
     "electron": "electron .",
     "package": "electron-packager . reminderApp --platform=darwin --arch=x64",
-    "archive": "asar pack reminder-xxx-x64/resources/app reminder-xxx-x64/resources/app.asar"
+    "archive": "asar pack reminderApp-darwin-x64/reminderApp.app/Contents/Resources/app reminderApp-darwin-x64/reminderApp.app/Contents/Resources/app.asar && rm -rf reminderApp-darwin-x64/reminderApp.app/Contents/Resources/app"
   },
   "private": true,
   "dependencies": {
@@ -52,6 +52,7 @@
     "@types/jasmine": "~2.5.53",
     "@types/jasminewd2": "~2.0.2",
     "@types/node": "~6.0.60",
+    "asar": "^0.14.0",
     "codelyzer": "^4.0.1",
     "electron": "^1.7.9",
     "electron-packager": "^10.1.1",
